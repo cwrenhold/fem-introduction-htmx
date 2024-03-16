@@ -9,9 +9,15 @@
         <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
     </head>
     <body>
-        Count {{ .Count }}
-
-        <button hx-post="/count">Count</button>
+        <div id="count">
+            {{ template "count" . }}
+        </div>
+        <button hx-post="/count" hx-target="#count">Count</button>
     </body>
 </html>
 {{ end }}
+
+{{ block "count" . }}
+    Count {{ .Count }}
+{{ end }}
+
