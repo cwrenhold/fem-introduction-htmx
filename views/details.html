@@ -1,8 +1,6 @@
 {{ block "details" . }}
-    <a
-        hx-target="body"
-        hx-push-url="true"
-        hx-get="/">
+    <!-- NOTE: This is a boosted a tag -->
+    <a href="/">
         Go back
     </a>
     {{ template "contact" . }}
