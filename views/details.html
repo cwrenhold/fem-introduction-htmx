@@ -1,0 +1,9 @@
+{{ block "details" . }}
+    <a
+        hx-target="body"
+        hx-push-url="true"
+        hx-get="/">
+        Go back
+    </a>
+    {{ template "contact" . }}
+{{ end }}

@@ -1,0 +1,7 @@
+{{ block "display" . }}
+<div id="contacts" style="display: flex; flex-direction: column">
+    {{ range .Contacts }}
+        {{ template "contact" . }}
+    {{ end }}
+</div>
+{{ end }}

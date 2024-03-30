@@ -114,6 +114,21 @@ func main() {
 		return c.Render(200, "index", page)
 	})
 
+	e.GET("/contacts/:id", func(c echo.Context) error {
+		idStr := c.Param("id")
+		id, err := strconv.Atoi(idStr)
+		if err != nil {
+			return c.String(400, "Invalid id")
+		}
+
+		index := page.Data.indexOf(id)
+		if index == -1 {
+			return c.String(404, "Contact not found")
+		}
+
+		return c.Render(200, "details", page.Data.Contacts[index])
+	})
+
 	e.POST("/contacts", func(c echo.Context) error {
 		name := c.FormValue("name")
 		email := c.FormValue("email")
